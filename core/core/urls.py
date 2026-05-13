@@ -18,7 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+def health(request):
+    return JsonResponse({"status": "ok"})
+from django.http import JsonResponse
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("downloader.urls")),
+    path("health/", health),
 ]

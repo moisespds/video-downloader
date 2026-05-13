@@ -1,18 +1,75 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <title>Video Dwnloader</title>
+        <link rel="stylesheet" href="{% static 'downloader/css/style.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Video Downloader</h1>+
+        <header class="div-header">
+            <div class="container">
+                <h1>Video Downloader</h1>
+            </div>
+        </header>
+        <main class="div-main">
+        <div class="container">
         <form method="post">
             {% csrf_token %}
+            <div class="div-link">
+                <div class="div-input">
+                    <label for="url">Link do video:</label><br>
+                    <input type="text" name="url" id="url" placeholder="Cole o link aqui" required /><br><br>
+                </div>
+                <div class="div-button">
+                    <button type="submit">Baixar</button>           
+                </div>
+            </div>
+            <div class="div-select">
+                <div class="div-formato">                    
+                    <label>Formato:</label><br>
+                    <select name="formato" title="formato" id="formato">
+                        <option value="mp4">Mp4</option>
+                        <option value="mp3">Mp3</option>
+                    </select>
+                    <br><br>
+                </div>
+                <div class="div-quality">
+                    <label>Quality Video:</label><br>
+                    <select name="quality" title="quality" id="quality">
+                        <option value="null">None</option>
+                        <option value="bestvideo[height<=2160][ext=mp4]+bestaudio[ext=m4a]/best[height<=2160][ext=mp4]">4K Quality</option>
+                        <option value="bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]">1080P Quality</option>
+                        <option value="bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]">720P Quality</option>
+                        <option value="bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]">480P Quality</option>
+                        <option value="bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/best[height<=360][ext=mp4]">360P Quality</option>
+                    </select>
+                    <br><br> 
+                </div>
+            </div>
 
-            <label for="url">Link do video:</label><br>
-            <input type="text" name="url" id="url"placeholder="Cole o link aqui" required><br><br>
-
-            <button type="submit">Baixar</button>
+            <p>O Download pode levar alguns minutos...</p>
         </form>
+        </div>
+        </main>
+        <footer class="div-footer">
+            <div class="container">
+                <p>Desenvolvido por Pi Software</p>
+                <div class="div-contato">
+                    <div class="div-email">
+                        <p>Contato: <a href="mailto:pisoftwarebauru@gmail.com">pisoftwarebauru@gmail.com</a></p>
+                        <p>Linkedin: <a href="https://www.linkedin.com/in/pi-software/">moisespradodev</a></p>
+                    </div>
+                    <div class="div-github">
+                        <p>GitHub: <a href="https://github.com/pi-software">github.com/moisespds</a></p>
+                        <p><a href="https://www.moisespradodasilva.com.br" target="_blank">www.moisespradodasilva.com.br</a></p>
+                    </div>
+                </div>
+                <p>Copyright © 2026 Pi Software- All rights reserved.</p>
+            </div>
+        </footer>
     </body>
 </html>

@@ -13,6 +13,10 @@ db.sqlite3
 media/
 staticfiles/
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 # IDE
 .vscode/
 .idea/
