@@ -1,0 +1,23 @@
+# Docker Compose configuration for the video downloader application.
+services:
+  app:
+    build: .
+    env_file:
+      - .env
+    container_name: video-downloader
+    ports:
+      - "8000:8000"
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    volumes:
+      - ./core:/core
+      - ./downloads:/core/downloads
+
+    command: >
+      sh -c "python manage.py collectstatic --noinput &&
+             gunicorn core.wsgi:application --bind 0.0.0.0:8000"

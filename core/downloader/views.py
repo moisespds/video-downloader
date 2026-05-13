@@ -26,7 +26,6 @@ def home(request):
             elif formato == 'mp4':
                 filepath = download_video(video_url, quality)
                 return FileResponse(open(filepath, 'rb'), as_attachment=True)
-            
             elif formato == 'mp3':        
                 filepath = download_audio(video_url)
                 return FileResponse(open(filepath, 'rb'), as_attachment=True)
@@ -34,4 +33,3 @@ def home(request):
             return render(request, "downloader/home.html", { "error": "Error found while downloading the video. Please check the URL and try again." })
     else:
         return render(request, "downloader/home.html")
-     

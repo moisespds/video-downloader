@@ -19,19 +19,19 @@ def download_video(url, quality):
     
 def download_audio(url):
     ydl_opts = {
-        'outtmpl': os.path.join(settings.MEDIA_ROOT, '%(title)s.%(ext)s'),  # Save as MP3
-        'format': 'bestaudio',  # Downloads best audio quality 
-        'postprocessors': [{  # Post-process to convert format if needed
+        'outtmpl': os.path.join(settings.MEDIA_ROOT, '%(title)s.%(ext)s'),  
+        'format': 'bestaudio', 
+        'postprocessors': [{  
             'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',  # Convert to MP3
-            'preferredquality': '320',  # 320 kbps quality
+            'preferredcodec': 'mp3',  
+            'preferredquality': '320',  
         }],
         'verbose': True,
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
         filename = ydl.prepare_filename(info)
-        filename = os.path.splitext(filename)[0] + '.mp3'  # Change extension to .mp3
+        filename = os.path.splitext(filename)[0] + '.mp3' 
         print("Audio downloaded:", filename)
         print("Audio URL:", url)
         print("Audio options:", ydl_opts)

@@ -16,7 +16,7 @@
             </div>
         </header>
         <main class="div-main">
-            <div class="container">
+        <div class="container">
         <form method="post">
             {% csrf_token %}
             <div class="div-link">
@@ -42,14 +42,15 @@
                     <select name="quality" title="quality" id="quality">
                         <option value="null">None</option>
                         <option value="bestvideo[height<=2160][ext=mp4]+bestaudio[ext=m4a]/best[height<=2160][ext=mp4]">4K Quality</option>
-                        <option value="bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]">High Quality</option>
-                        <option value="bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]">Medium Quality</option>
-                        <option value="bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]">Low Quality</option>
-                        <option value="bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/best[height<=360][ext=mp4]">Very Low Quality</option>
+                        <option value="bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]">1080P Quality</option>
+                        <option value="bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]">720P Quality</option>
+                        <option value="bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]">480P Quality</option>
+                        <option value="bestvideo[height<=360][ext=mp4]+bestaudio[ext=m4a]/best[height<=360][ext=mp4]">360P Quality</option>
                     </select>
                     <br><br> 
                 </div>
             </div>
+
             <p>O Download pode levar alguns minutos...</p>
         </form>
         </div>
@@ -59,7 +60,7 @@
                 <p>Desenvolvido por Pi Software</p>
                 <div class="div-contato">
                     <div class="div-email">
-                        <p>Contato: <a href="mailto:contato@pisoftware.com">contato@pisoftware.com</a></p>
+                        <p>Contato: <a href="mailto:pisoftwarebauru@gmail.com">pisoftwarebauru@gmail.com</a></p>
                         <p>Linkedin: <a href="https://www.linkedin.com/in/pi-software/">moisespradodev</a></p>
                     </div>
                     <div class="div-github">
